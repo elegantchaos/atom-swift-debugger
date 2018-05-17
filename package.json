@@ -21,6 +21,9 @@
     "engines": {
         "atom": ">=1.0.0 <2.0.0"
     },
+    "deserializers": {
+      "BreakpointStore": "deserializeBreakpointStore"
+    },
     "dependencies": {
         "atom-space-pen-views": "^2.0.0"
     },
