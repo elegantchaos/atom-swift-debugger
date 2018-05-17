@@ -1,7 +1,7 @@
 {
   "name": "swift-debugger",
   "main": "./lib/swift-debugger",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Develop and Debug swift projects",
   "keywords": [
     "swift",
@@ -16,7 +16,7 @@
       "swift-debugger:breakpoint"
     ]
   },
-  "repository": "https://github.com/aciidb0mb3r/atom-swift-debugger",
+  "repository": "https://github.com/elegantchaos/atom-swift-debugger",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
