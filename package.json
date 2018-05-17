@@ -1,27 +1,42 @@
 {
-  "name": "swift-debugger",
-  "main": "./lib/swift-debugger",
-  "version": "0.2.0",
-  "description": "Develop and Debug swift projects",
-  "keywords": [
-    "swift",
-    "develop swift",
-    "debug swift",
-    "swift package manager",
-    "lldb"
-  ],
-  "activationCommands": {
-    "atom-workspace": [
-      "swift-debugger:toggle",
-      "swift-debugger:breakpoint"
-    ]
-  },
-  "repository": "https://github.com/elegantchaos/atom-swift-debugger",
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "dependencies": {
-    "atom-space-pen-views": "^2.0.0"
-  }
+    "name": "swift-debugger",
+    "main": "./lib/swift-debugger",
+    "version": "0.2.0",
+    "description": "Develop and Debug swift projects",
+    "keywords": [
+        "swift",
+        "develop swift",
+        "debug swift",
+        "swift package manager",
+        "lldb"
+    ],
+    "activationCommands": {
+        "atom-workspace": [
+            "swift-debugger:toggle",
+            "swift-debugger:breakpoint"
+        ]
+    },
+    "repository": "https://github.com/elegantchaos/atom-swift-debugger",
+    "license": "MIT",
+    "engines": {
+        "atom": ">=1.0.0 <2.0.0"
+    },
+    "dependencies": {
+        "atom-space-pen-views": "^2.0.0"
+    },
+    "configSchema": {
+        "swift": {
+            "title": "swift binary location",
+            "description": "The location of the swift binary.\n \nDefault behaviour if this setting is left empty is to search for a command called `swift`, but you can specify an explicit path or different command here if required.",
+            "type": "string",
+            "default": ""
+        },
+        "lldb": {
+            "title": "lldb binary location",
+            "description": "The location of the lldb binary.\n \nDefault behaviour if this setting is left empty is to search for a command called `lldb`, but you can specify an explicit path or different command here if required.",
+            "type": "string",
+            "default": ""
+        }
+    }
+
 }

@@ -8,7 +8,8 @@ path = require 'path'
 module.exports =
 class SwiftDebuggerView extends View
   executableFileName: null
-  swiftPath: null
+  lldbPath: atom.config.get('atom-swift-debugger.lldb', {}) || 'lldb'
+  swiftPath: atom.config.get('atom-swift-debugger.swift', {}) || 'swift'
 
   @content: ->
     @div class: 'swiftDebuggerView', =>
@@ -49,7 +50,7 @@ class SwiftDebuggerView extends View
       @askForPaths()
       return
 
-    @swiftBuild = spawn @swiftPath+'/swift', ['build', '--package-path', @workspacePath()]
+    @swiftBuild = spawn @swiftPath, ['build', '--package-path', @workspacePath()]
     @swiftBuild.stdout.on 'data',(data) =>
       @addOutput(data.toString().trim())
     @swiftBuild.stderr.on 'data',(data) =>
@@ -61,7 +62,7 @@ class SwiftDebuggerView extends View
       @addOutput("built with code : " + codeString)
 
   runLLDB: ->
-    @lldb = spawn @swiftPath+"/lldb", [@workspacePath()+"/.build/debug/"+@executableFileName]
+    @lldb = spawn @lldbPath, [@workspacePath()+"/.build/debug/"+@executableFileName]
 
     for breakpoint in @breakpointStore.breakpoints
       @lldb.stdin.write(breakpoint.toCommand()+'\n')
@@ -94,13 +95,12 @@ class SwiftDebuggerView extends View
       @scrollToBottomOfOutput()
 
   pathsNotSet: ->
-    !@swiftPath || !@executableFileName
+    !@executableFileName
 
   askForPaths: ->
     if @pathsNotSet()
-      @addOutput("Please enter executable and swift path using e=nameOfExecutable then p=path/to/swift")
+      @addOutput("Please enter executable name using e=nameOfExecutable")
       @addOutput("Example e=helloWorld")
-      @addOutput("Example p=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin")
 
   initialize: (breakpointStore) ->
     @breakpointStore = breakpointStore
@@ -125,11 +125,6 @@ class SwiftDebuggerView extends View
       match = /e=(.*)/.exec command
       @executableFileName = match[1]
       @addOutput("executable path set")
-      return true
-    if /p=(.*)/.test command
-      match = /p=(.*)/.exec command
-      @swiftPath = match[1]
-      @addOutput("swift path set")
       return true
     return false
 
