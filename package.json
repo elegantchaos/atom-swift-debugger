@@ -22,6 +22,7 @@
         "atom": ">=1.0.0 <2.0.0"
     },
     "deserializers": {
+      "Breakpoint": "deserializeBreakpoint",
       "BreakpointStore": "deserializeBreakpointStore"
     },
     "dependencies": {
