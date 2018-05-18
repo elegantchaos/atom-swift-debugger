@@ -10,16 +10,14 @@
         "swift package manager",
         "lldb"
     ],
-    "activationCommands": {
-        "atom-workspace": [
-            "swift-debugger:toggle",
-            "swift-debugger:breakpoint"
-        ]
-    },
     "repository": "https://github.com/elegantchaos/atom-swift-debugger",
     "license": "MIT",
     "engines": {
         "atom": ">=1.0.0 <2.0.0"
+    },
+    "deserializers": {
+      "Breakpoint": "deserializeBreakpoint",
+      "BreakpointStore": "deserializeBreakpointStore"
     },
     "dependencies": {
         "atom-space-pen-views": "^2.0.0"
