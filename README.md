@@ -1,19 +1,26 @@
 # Swift-Debugger package
 
+*Note that this is heavily modified from the original, but the documentation hasn't kept up...*
+
 A Swift Debugger Package for Atom!
 
 ## Shortcuts
+
 alt-r to hide/show the debugger view
 
 alt-shift-r to toggle breakpoints at the current line
 
 ## How to use
 
-### Install using APM
+### Install dependencies using APM
 ```
-$ apm install swift-debugger language-swift
+$ apm install language-swift tool-bar
 ```
+
 `language-swift` package provides syntax highlighting
+`tool-bar` implements the toolbar API that we use
+
+The swift-debugger package itself needs to be installed manually from this fork.
 
 ### Create a project
 ```
@@ -34,8 +41,8 @@ let package = Package(
 )
 ```
 
-### Enter some sample code in main.swift 
-```objc 
+### Enter some sample code in main.swift
+```objc
 let myAwesomeString = "hey I am an awesome string"
 print(myAwesomeString)
 let awesomeInt = 500
@@ -63,4 +70,3 @@ After toggling the breakpoint, press run and then enter `p myAwesomeString` to p
 
 More tutorial:
 https://medium.com/@Aciid/hacking-atom-to-create-a-swift-ide-that-runs-on-linux-and-mac-c7d9520a0fac#.etzoon43j
-
