@@ -57,11 +57,9 @@ Enter this in the input box of the debugger
 
 ### alt-shift-r to toggle breakpoint at the current line
 
-In any Swift file you're editing, you can set breakpoints:
+In any Swift file you're editing, you can set breakpoints.
 
-![](https://cdn-images-1.medium.com/max/1600/1*6ji_E4xS2rswKuTStTmqYQ.png)
-
-After toggling the breakpoint, press run.
+After toggling the breakpoint, press Run.
 
 When the debugger hits the breakpoint, it'll pause and then you can enter lldb commands.
 
