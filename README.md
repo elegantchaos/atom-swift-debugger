@@ -2,9 +2,9 @@
 
 A Swift Debugger Package for Atom!
 
-*Note that this package is heavily modified from the original, but the documentation hasn't kept up.
+*Note that this package is heavily modified from the original, but the documentation hasn't kept up.*
 
-It's also untested at the moment: "it works on my machine!".*
+*It's also untested at the moment: "it works on my machine!".*
 
 
 ## Shortcuts
