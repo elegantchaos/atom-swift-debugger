@@ -1,8 +1,11 @@
 # Swift-Debugger package
 
-*Note that this is heavily modified from the original, but the documentation hasn't kept up...*
-
 A Swift Debugger Package for Atom!
+
+*Note that this package is heavily modified from the original, but the documentation hasn't kept up.
+
+It's also untested at the moment: "it works on my machine!".*
+
 
 ## Shortcuts
 
@@ -13,6 +16,7 @@ alt-shift-r to toggle breakpoints at the current line
 ## How to use
 
 ### Install dependencies using APM
+
 ```
 $ apm install language-swift tool-bar
 ```
