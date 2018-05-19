@@ -10,18 +10,35 @@
         "swift package manager",
         "lldb"
     ],
+
     "repository": "https://github.com/elegantchaos/atom-swift-debugger",
     "license": "MIT",
+
     "engines": {
         "atom": ">=1.0.0 <2.0.0"
     },
+
     "deserializers": {
       "Breakpoint": "deserializeBreakpoint",
       "BreakpointStore": "deserializeBreakpointStore"
     },
+
     "dependencies": {
         "atom-space-pen-views": "^2.0.0"
     },
+
+    "package-deps": [
+        "tool-bar:1.1.7"
+    ],
+
+    "consumedServices": {
+      "tool-bar": {
+        "versions": {
+          "^0 || ^1": "consumeToolBar"
+        }
+      }
+    },
+
     "configSchema": {
         "swift": {
             "title": "swift binary location",
