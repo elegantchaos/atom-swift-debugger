@@ -20,53 +20,45 @@ $ apm install language-swift tool-bar
 `language-swift` package provides syntax highlighting
 `tool-bar` implements the toolbar API that we use
 
+### Install this package
+
 The swift-debugger package itself needs to be installed manually from this fork.
 
-### Create a project
-```
-$ mkdir MySwiftProject && touch MySwiftProject/main.swift && touch MySwiftProject/Package.swift
-```
+### Open a Swift project in Atom
 
-### Open the folder in atom
 ```
 $ atom MySwiftProject
 ```
 
-### Give name to the swift package, Enter this in Package.swift
-```objc
-import PackageDescription
+*Note that the project must have a `Package.swift` file and build with the Swift package manager.
 
-let package = Package(
-    name: "MySwiftProject"
-)
-```
+### Set the location for swift and lldb
 
-### Enter some sample code in main.swift
-```objc
-let myAwesomeString = "hey I am an awesome string"
-print(myAwesomeString)
-let awesomeInt = 500
-print(awesomeInt)
-```
+In the plugin settings, enter the locations of the swift and lldb binaries.
 
-### Press alt-r to open the debugger
+### Show The Toolbar
 
-![Swift Debugger](https://cdn-images-1.medium.com/max/1600/1*ZhoyYtvLzQhvCMjhtlpFxQ.png)
+Choose "Tool Bar: Toggle" from Atom's command palette.
 
-### Set executable and swift path for debugger
+Hit the Run button in the toolbar.
+
+### Set the executable
+
+Currently the debugger doesn't infer which product you want to build/run, so you have to tell it manually:
 
 Enter this in the input box of the debugger
-`e=MySwiftProject` (press enter)
-`p=/home/aciid/swift/swift-2.2-SNAPSHOT-2015–12–01-b-ubuntu15.10/usr/bin` (press enter)
-Debugger will print: "swift path set" and "executable path set" respectively
 
-### Press "run" to build and run the code
-![](https://cdn-images-1.medium.com/max/1600/1*G1w5YyDLhYfHWCynDD7p0A.png)
+`e=MySwiftProject` (press enter)
+
 
 ### alt-shift-r to toggle breakpoint at the current line
+
+In any Swift file you're editing, you can set breakpoints:
+
 ![](https://cdn-images-1.medium.com/max/1600/1*6ji_E4xS2rswKuTStTmqYQ.png)
 
-After toggling the breakpoint, press run and then enter `p myAwesomeString` to print the object
+After toggling the breakpoint, press run.
 
-More tutorial:
-https://medium.com/@Aciid/hacking-atom-to-create-a-swift-ide-that-runs-on-linux-and-mac-c7d9520a0fac#.etzoon43j
+When the debugger hits the breakpoint, it'll pause and then you can enter lldb commands.
+
+E.g: enter `p myAwesomeString` to print the object
